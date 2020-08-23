@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>howler.js sample</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.3/howler.js"></script>
+   <!-- Copyright (c) 2013-2019 James Simpson and GoldFire Studios, Inc. https://howlerjs.com/ -->
+</head>
+
+<body>
+  <br>
+  <span id="pad" style="border:solid 2px red; padding:10px;color:red;">
+    click or tap here</span>
+
+  <script>
+    // Howlオブジェクトを生成して音源をセット
+    const sound = new Howl({
+      src: ['sound.wav']
+    });
+
+    // 文字列がクリックされたら音を出す
+    //clickイベントはマウスを離したときに発火するので、楽器的にはmousedownとかtouchstartの方が良い
+
+    document.getElementById("pad").addEventListener('click', event => {
+      sound.play();
+    }, { capture: true, passive: false });
+
+
+  </script>
+</body>
+
+</html>
